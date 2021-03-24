@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1615722975 source:/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/CMakeFiles/3.19.6/CompilerIdC/CMakeCCompilerId.c
+
+1615722976 source:/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/CMakeFiles/3.19.6/CompilerIdCXX/CMakeCXXCompilerId.cpp
+
+1615725626 source:/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libINIT/sources/_struct_zdv_cfg.cpp
+
+1615724108 source:/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libNFAPI/sources/FAPI_SCF_222.cpp
+
+1613327338 source:/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libTS38/sources/TS_38101_4_UE_tx_rx.cpp
+
+1613327390 source:/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libTS38/sources/TS_38331_RL16_RRC.cpp
+

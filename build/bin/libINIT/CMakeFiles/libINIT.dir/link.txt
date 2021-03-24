@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibINIT.a CMakeFiles/libINIT.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libINIT/sources/_struct_zdv_cfg.cpp.o CMakeFiles/libINIT.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libINIT/sources/_init.cpp.o
+/usr/bin/ranlib liblibINIT.a

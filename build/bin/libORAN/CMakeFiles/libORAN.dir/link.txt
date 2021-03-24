@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibORAN.a CMakeFiles/libORAN.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libORAN/sources/ORAN_BS_SW_WG8.cpp.o
+/usr/bin/ranlib liblibORAN.a

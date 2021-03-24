@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibNFAPI.a CMakeFiles/libNFAPI.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libNFAPI/sources/FAPI_SCF_222.cpp.o
+/usr/bin/ranlib liblibNFAPI.a

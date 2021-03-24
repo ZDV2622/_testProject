@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibOFDM.a CMakeFiles/libOFDM.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libOFDM/sources/_fft.cpp.o CMakeFiles/libOFDM.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libOFDM/sources/fft_ifft_radixN.cpp.o CMakeFiles/libOFDM.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libOFDM/sources/ofdm_modulation.cpp.o
+/usr/bin/ranlib liblibOFDM.a

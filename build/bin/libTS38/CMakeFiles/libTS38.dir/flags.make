@@ -6,5 +6,5 @@ CXX_DEFINES = -DBOOST_ASIO_DISABLE_STD_EXPERIMENTAL_STRING_VIEW -DBOOST_ASIO_DIS
 
 CXX_INCLUDES = -I/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/..
 
-CXX_FLAGS = -march=corei7-avx -O3 -DNDEBUG -std=gnu++11
+CXX_FLAGS = -march=corei7-avx -std=c++11 -pthread -lconfig++ -lconfig -O3 -DNDEBUG -std=gnu++11
 

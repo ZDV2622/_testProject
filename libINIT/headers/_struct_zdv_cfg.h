@@ -23,7 +23,7 @@ static int  const scs_supported[] = {0,1};
 static int const ssb_offset_point_a_max = 2199;
 static int const ssb_subcarrier_offset_max = 31;
 
-// тут предполагаю хранить индексы к таблицам конфигов
+// to save index(temp)
 typedef struct {
   int SS_raster_per_band_tabl_ind;
   int nr_global_frequency_raster_ind;
@@ -32,19 +32,18 @@ typedef struct {
 } index_table_zdv_t;
 
 
-
-// zdv не было в nfapi
+/// full config (need change)
 typedef struct {
-  int band_zdv;
-  int nrb_zdv;
 
-  //TS38104 Table B.5.2-2: EVM window length for normal CP, FR1, 30 kHz SCS
-  int fft_size_zdv; // delete
-  int fft_shift_zdv; // nrb/2
+  int band;
+  int nrb;
+
+  uint16_t fft_size; //  Size of FFT
+  int fft_shift; // nrb/2
 
   lte_prefix_type_t lte_prefix_type;
   uint8_t threequarter_fs;   // 3/4 sampling
-  uint16_t fft_size; //  Size of FFT
+
   uint16_t first_carrier_offset;  ///// Carrier offset in FFT buffer for first RE in PRB0
   uint16_t symbols_per_slot;  // /// Number of OFDM/SC-FDMA symbols in one slot
   uint16_t slots_per_subframe; // /// Number of slots per subframe
@@ -65,23 +64,21 @@ typedef struct {
   //get_slot_from_timestamp_t get_slot_from_timestamp; // slot calculation from timestamp
   //get_samples_slot_timestamp_t get_samples_slot_timestamp;  // Number of samples before slot
 
-
-
-
-  uint32_t nr_gold_pbch_dmrs[2][64][10];   /// PBCH DMRS sequence
-  nr_frequency_range_t frequency_range_zdv;
+  uint32_t nr_gold_pbch_dmrs[2][64][10];   // PBCH DMRS sequence
+  nr_frequency_range_t frequency_range;
   int scs_ssb_zdv;  // kHz
-  int Lmax_zdv;
+  int Lmax;
   int n_hf;
-  bool ssb_mask_zdv[64] = {0}; // each bit - ssb index transmitted// RRC conf ssb-PositionInBurst
+  int ssb_index_mask[64] = {0}; // mask for ssb, which is transmitted
   int ssb_start_ofdm_symb[64] = {0};
   index_table_zdv_t index_table_zdv; // индексы к таблицам 3GPP
-  SSB_pattern_t SSB_pattern_zdv; // CaseA,CaseB,CaseC,CaseD,
-  int TDD_UL_DL_configCommon_ind_zdv; // zdv
+  SSB_pattern_t SSB_pattern; // CaseA,CaseB,CaseC,CaseD,
   nfapi_nr_param_tlv_t nfapi_nr_param_tlv;
   nfapi_nr_config_tlv_t nfapi_nr_config_tlv;
   TDD_UL_DL_configCommon_t TDD_UL_DL_configCommon;
+
 } nr_config_full_t;
+
 
 
 #endif // ADD_struct_zdv_cfg_H

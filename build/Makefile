@@ -207,32 +207,32 @@ libTS38/fast:
 	$(MAKE) $(MAKESILENT) -f bin/libTS38/CMakeFiles/libTS38.dir/build.make bin/libTS38/CMakeFiles/libTS38.dir/build
 .PHONY : libTS38/fast
 
-home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.o: home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o
+home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.o: home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o
 
-.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.o
+.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.o
 
 # target to build an object file
-home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NR3GPP.dir/build.make CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o
-.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o
+home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NR3GPP.dir/build.make CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o
+.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o
 
-home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.i: home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i
+home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.i: home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i
 
-.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.i
+.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.i
 
 # target to preprocess a source file
-home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NR3GPP.dir/build.make CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i
-.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i
+home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NR3GPP.dir/build.make CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i
+.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i
 
-home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.s: home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s
+home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.s: home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s
 
-.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.s
+.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.s
 
 # target to generate assembly for a file
-home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NR3GPP.dir/build.make CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s
-.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s
+home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NR3GPP.dir/build.make CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s
+.PHONY : home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s
 
 # Help Target
 help:
@@ -248,9 +248,9 @@ help:
 	@echo "... libOFDM"
 	@echo "... libORAN"
 	@echo "... libTS38"
-	@echo "... home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.o"
-	@echo "... home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.i"
-	@echo "... home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.s"
+	@echo "... home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.o"
+	@echo "... home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.i"
+	@echo "... home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.s"
 .PHONY : help
 
 

@@ -16,6 +16,61 @@
 //#include <libOFDM/headers/ofdm_modulation.h>
 
 
+/*************************************************************************************************************************************************************
+
+In this file you can find functional blocks from:
+O-RAN Working Group 8
+Base Station O-DU and O-CU Software Architecture and APIs
+
+Chapter 4 O-DU Software Architecture ........................................ 14
+Chapter 5 O-DU L1 Functional Blocks ..........................................14
+5.1 Physical Uplink Shared Channel .......................................... 15
+5.2 Uplink Control Channels ................................................. 16
+5.3 Uplink Reference Signals ................................................ 16
+5.4 Physical Downlink Shared Channel......................................... 16
+5.5 Physical Downlink Control Channel ....................................... 17
+5.6 Downlink Reference Signals .............................................. 17
+5.7 Physical Broadcast Channel .............................................. 17
+5.8 Physical Random Access Channel .......................................... 18
+5.9 L1 Tasks Processing Flow ................................................ 18
+5.10 Front Haul Module ...................................................... 20
+5.11 O-DU Timing Synchronization ............................................ 20
+Chapter 6 O-DU L2 Functional Blocks ..........................................21
+6.1 L2 MAC Scheduler ........................................................ 23
+6.2 Supporting E2 service models ............................................ 24
+6.3 O-DU Cloudification ..................................................... 25
+
+
+*************************************************************************************************************************************************************/
+
+
+
+/*************************************************************************************************************************************************************
+
+Function Oran_Pbch_proc
+
+5.7 Physical Broadcast Channel .............................................. 17
+Figure 5-3: PBCH processing flow diagram
+-- PBCH Payload Generation: Creates the PBCH payload message, Refer to Subclause 7.1.1 in 3GPP TS38.212 [5] for details.
+-- Scrambling: Refer to Subclause 7.1.2 in 3GPP TS38.212 [5] for details.
+-- CRC attachment: Refer to Subclause 7.1.3 in 3GPP TS38.212 [5] for details.
+-- Channel Encoding: Refer to Subclause 7.1.4 in 3GPP TS38.212 [5] for details.
+-- Rate Matching: Refer to Subclause 7.1.5 in 3GPP TS38.212 [5] for details.
+-- Data Scrambling: Refer to Subclause 7.3.1.3 in 3GPP TS38.211 [4] for details.
+-- Data Modulation: Refer to Subclause 7.3.3.2 in 3GPP TS38.211 [4] for details.
+-- Resource Element Mapping: Refer to Subclause 7.3.3.3 in 3GPP TS38.211 [4] for details.
+-- DMRS Sequence Generation: Refer to Subclause 7.4.1.4 in 3GPP TS38.211 [4] for details.
+-- DMRS Scrambling: Refer to Subclause 7.4.1.4 in 3GPP TS38.211 [4] for details.
+
+All function description can be found in TSxxx docs
+PBCH_payload_generation()
+nr_PBCH_tb_crc_attach()
+nr_polar_output_length()
+.....
+
+
+*************************************************************************************************************************************************************/
+
 
 void Oran_Pbch_proc(uint32_t sfn, oran_pbch_proc_config_t *oran_pbch_proc_config, int16_t *txdataF)
 {
@@ -141,7 +196,11 @@ void Oran_Pbch_proc(uint32_t sfn, oran_pbch_proc_config_t *oran_pbch_proc_config
                                    amp//int amp
                                  );
 
-        pbch_data_resource_mapper( modData, // modulated data
+        for(int i = 0; i<Lmax; i++)
+        {
+            if( ssb_start_symb_mask[i] > 0 )
+            {
+                    pbch_data_resource_mapper( modData, // modulated data
                                    txdataF,
                                    ssb_index,
                                    SSB_pattern,
@@ -152,6 +211,12 @@ void Oran_Pbch_proc(uint32_t sfn, oran_pbch_proc_config_t *oran_pbch_proc_config
                                    pci,
                                    amp
                                  );
+
+            }
+
+        };
+
+
 
 
 }

@@ -3,6 +3,10 @@
 
 
 #include <libINIT/headers/_init.h>
+
+#include <iostream>
+#include <cstdlib>
+#include <libconfig.h++>
 //#include <libTS38/headers/TS_38104_BS_Radio_tx_rx_table.h>
 
 //#include <libTS38/headers/TS_38213_PHY_Layer_Procedure.h>
@@ -14,6 +18,7 @@
 //#include <libINIT/headers/_struct_zdv_cfg.h>
 //#include <libINIT/headers/_init.h>
 //#include <libORAN/headers/ORAN_BS_SW_WG8.h>
+
 
 
 
@@ -168,7 +173,7 @@ uint32_t from_nrarfcn(int nr_bandP,
 
 
 
-
+/// this fun
 void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_cfg)
 {
 
@@ -192,18 +197,10 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     int TDD_UL_DL_configuration;
     int i;
 
-    // странная муть, если это убрать, не видит функции из 38212, при вызове в ORAN? нужно вчитаться, похоже проблема с линками !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //uint32_t PBCH_payload;
-//    PBCH_payload = PBCH_payload_generation(0,
-//                                               0,
-//                                               0,
-//                                               0,
-//                                               0,
-//                                               0,
-//                                               0);
-    // странная муть, если это убрать, не видит функции из 38212, при вызове в ORAN  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    // Band
+
+
+    /// Init Band from supported
     while(flag==0)
     {
 
@@ -231,13 +228,14 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
         }
     }
     flag = 0;
-    cfg->band_zdv = band;
+    cfg->band = band;
 
-    // ENTER SCS index
+
+    /// ENTER SCS index, numerology
     while(flag==0)
     {
 
-        std::cout << "\n\nENTER mu index from range: ";
+        std::cout << "\n\nENTER numerology index from range: ";
         for (int i = 0; i < (sizeof(scs_supported)/sizeof(scs_supported[0])); ++i)
         {
             std::cout << (scs_supported[i]) << " ";
@@ -263,6 +261,9 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     // save to structure
     cfg->nfapi_nr_config_tlv.ssb_config.scs_common.value = 15<<scs_index;
 
+
+
+    /// Take params from band and mu:
     printf("\n\nFrom band=%d and scs=%d kHz",band,15<<scs_index);
     // normal/extended CP save, limitation, only normal cp
     cfg->lte_prefix_type = NORMAL;
@@ -274,11 +275,11 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     // save to str
     cfg->nfapi_nr_config_tlv.cell_config.frame_duplex_type.value = lte_frame_type;
     printf("\nFrom 3GPP TS 38104 Table 5.4.2.3-1: and Table 5.2-1");
-    printf("\nBand = %d\ndl_min = %lu\ndl_max = %lu\nul_min = %lu\nul_max = %lu\n", nr_bandtable[bandtable_ind].band, nr_bandtable[bandtable_ind].dl_min_arfcn,nr_bandtable[bandtable_ind].dl_max_arfcn,nr_bandtable[bandtable_ind].ul_min_arfcn,nr_bandtable[i].ul_max_arfcn);
+    printf("\nBand = %d\ndl_min_freq = %lu\ndl_max_freq = %lu\nul_min_freq = %lu\nul_max_freq = %lu\n", nr_bandtable[bandtable_ind].band, nr_bandtable[bandtable_ind].dl_min_arfcn,nr_bandtable[bandtable_ind].dl_max_arfcn,nr_bandtable[bandtable_ind].ul_min_arfcn,nr_bandtable[i].ul_max_arfcn);
 
     int nr_bwtable_idx = get_nr_bwtable_idx(band,scs_index);
 
-    // take sample configuration  from    lte_prefix_type_t and numerology;
+    /// take sample configuration  from    lte_prefix_type_t and numerology;
     for (int i = 0; i < (sizeof(number_OFDMsymbols_slots_tabl)/sizeof(number_OFDMsymbols_slots_tabl[0])); ++i)
     {
         if ((number_OFDMsymbols_slots_tabl[i].lte_prefix_type == cfg->lte_prefix_type) && (number_OFDMsymbols_slots_tabl[i].numerology == scs_index))
@@ -294,7 +295,7 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     }
 
 
-    // bandwidth
+    /// Select bandwidth from range
     while(flag==0)
     {
         printf("\n\nFrom TS_38104 Table 5.3.5-1: BS channel bandwidths and SCS per operating band in FR1 - now band is limited");
@@ -318,7 +319,7 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
                     if ((nr_bandwidth_nrb_table[j].scs_index==15<<scs_index) && (nr_bandwidth_nrb_table[j].bandwidth==bandwidth))
                     {
                         nrb = nr_bandwidth_nrb_table[j].n_rb;
-                        cfg->nrb_zdv = nrb;
+                        cfg->nrb = nrb;
                         break;
                     }
                 }
@@ -335,7 +336,7 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     }
     flag = 0;
 
-    // save to structere
+    // save to structure
     cfg->nfapi_nr_config_tlv.carrier_config.dl_bandwidth.value = bandwidth;
     if(lte_frame_type==1)
     {
@@ -350,7 +351,7 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     printf("\ncfg->nb_prefix_samples0 = %d ",  cfg->nb_prefix_samples0);
     printf("\ncfg->nb_prefix_samples = %d ",  cfg->nb_prefix_samples);
 
-    // take fft size from table;
+    /// take fft size from table;
     for (int i = 0; i < (sizeof(fft_sample_config_tabl)/sizeof(fft_sample_config_tabl[0])); ++i)
     {
         if ((fft_sample_config_tabl[i].lte_prefix_type == cfg->lte_prefix_type) && (fft_sample_config_tabl[i].numerology == scs_index) && (fft_sample_config_tabl[i].bandwidth == bandwidth))
@@ -359,6 +360,9 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
             cfg->fft_size = fft_sample_config_tabl[i].fft_size;
             oran_pbch_cfg->fft_size = fft_sample_config_tabl[i].fft_size;
             printf("\ncfg->fft_size = %d ",  cfg->fft_size);
+            cfg->fft_shift = 2*(cfg->fft_size - nrb*12/2);
+            printf("\nOK, fft_shift = 2*( fft_size - nrb*12/2): %d \n ",cfg->fft_shift );
+
 
         }
     }
@@ -442,13 +446,13 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     }
     flag = 0;
 
-    // take FR1/FR2
+    /// take FR1/FR2
     for (int i = 0; i < sizeof(frequency_ranges_tabl)/sizeof(frequency_ranges_tabl[0]); ++i)
     {
         if ((dl_frequency<=frequency_ranges_tabl[i].freq_max) && (dl_frequency>=frequency_ranges_tabl[i].freq_min))
         {
             printf("\nFR = %d",frequency_ranges_tabl[i].fr);
-            cfg->frequency_range_zdv = frequency_ranges_tabl[i].fr;
+            cfg->frequency_range = frequency_ranges_tabl[i].fr;
             break;
         }
     }
@@ -519,14 +523,14 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     cfg->TDD_UL_DL_configCommon.pattern1.nrofDownlinkSymbols = TDD_UL_DL_configuration_tabl[TDD_UL_DL_configuration].nrofDownlinkSymbols;
     cfg->TDD_UL_DL_configCommon.pattern1.nrofUplinkSlots = TDD_UL_DL_configuration_tabl[TDD_UL_DL_configuration].nrofUplinkSlots;
     cfg->TDD_UL_DL_configCommon.pattern1.nrofUplinkSymbols = TDD_UL_DL_configuration_tabl[TDD_UL_DL_configuration].nrofUplinkSymbols;
-    cfg->TDD_UL_DL_configCommon_ind_zdv;
+
 
 
     // ENTER SCS SSB from range
     flag = 0;
     while(flag==0)
     {
-        std::cout << "\n\nENTER SCS SSB from range: ";
+        std::cout << "\n\nENTER SCS SSB from range (Table 5.4.3.3-1: Applicable SS raster entries per operating band (FR1)): ";
         for (int j = 0; j < (sizeof(SS_raster_per_band_tabl)/sizeof(SS_raster_per_band_tabl[0])); ++j)
         {
             if ((SS_raster_per_band_tabl[j].band==band))
@@ -557,11 +561,11 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     flag = 0;
 
     cfg->scs_ssb_zdv = scs_ssb;
-    cfg->SSB_pattern_zdv = ssb_pattern;
+    cfg->SSB_pattern = ssb_pattern;
 
     get_ssb_start_symbol_t ssb_conf;
     nr_get_ssb_start_symbol(ssb_pattern, dl_frequency,&ssb_conf);
-    cfg->Lmax_zdv = ssb_conf.lmax;
+    cfg->Lmax = ssb_conf.lmax;
     printf("\nLmax =  %d ",ssb_conf.lmax);
     printf("\nssb start symb : ");
     for(int i = 0; i<ssb_conf.lmax; ++i)
@@ -585,7 +589,7 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
                 printf("OK\n");
                 ssb_mask[j] = mask;
                 oran_pbch_cfg->ssb_index_mask[i] = mask;
-                cfg->ssb_mask_zdv[j] = mask;
+                cfg->ssb_index_mask[j] = mask;
                 flag = 1;
                 //break;
             }
@@ -657,7 +661,8 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     flag = 0;
 
 
-    // oran_pbch_proc_config_t *oran_pbch_proc_config save to oran pbch config
+
+    /// save to structure for pbch
     oran_pbch_cfg->amp = AMP;
     oran_pbch_cfg->Lmax = nr_get_ssb_Lmax(dl_frequency, // supported frequency
                                           ssb_pattern
@@ -672,7 +677,6 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     oran_pbch_cfg->crcmask = 0;
     oran_pbch_cfg->crcParityBitsN = NR_POLAR_PBCH_CRC_PARITY_BITS;
     oran_pbch_cfg->ones_flag = 0;
-
     oran_pbch_cfg->K = NR_POLAR_PBCH_CRC_PARITY_BITS + NR_POLAR_PBCH_PAYLOAD_BITS;
     oran_pbch_cfg->E = NR_POLAR_PBCH_E; // (the rate matching output sequence length as given in Clause 5.4.1)
     oran_pbch_cfg->n_max = NR_POLAR_PBCH_N_MAX;
@@ -680,8 +684,62 @@ void INIT_CELL_CONFIG(nr_config_full_t *cfg, oran_pbch_proc_config_t *oran_pbch_
     oran_pbch_cfg->I_il = NR_POLAR_PBCH_I_IL;
     oran_pbch_cfg->Npc_wm = NR_POLAR_PBCH_N_PC_WM;
 
-    printf("\nPARAMETES FOR PBCH Proc:\n");
-    printf("\noran_pbch_cfg->Lmax = %d \n", oran_pbch_cfg->Lmax);
+    //printf("\nPARAMETES FOR PBCH Proc:\n");
+    //printf("\noran_pbch_cfg->Lmax = %d \n", oran_pbch_cfg->Lmax);
+
+    printf("\nSTART SAVE TO CONFIG FILE:\n");
+    static const char *output_file = "config.cfg";
+
+    libconfig::Config configF;
+    configF.readFile("config.cfg");
+    printf("\nread file ok:\n");
+    libconfig::Setting &root = configF.getRoot();
+    libconfig::Setting &gNBs = root["gNBs"];
+    gNBs["cell_type"] = "Macro test";
+    libconfig::Setting &servingCellConfigCommon = gNBs["servingCellConfigCommon"];
+
+    servingCellConfigCommon["physCellId"] = pci;
+    servingCellConfigCommon["frequencyband"] = band;
+    servingCellConfigCommon["carrierBandwidth"] = bandwidth;
+    servingCellConfigCommon["nrb"] = nrb;
+    servingCellConfigCommon["slots_per_frame"] = cfg->slots_per_frame;
+    servingCellConfigCommon["slots_per_subframe"] = cfg->slots_per_subframe;
+    servingCellConfigCommon["cp_prefix_type"] = cfg->lte_prefix_type;
+    servingCellConfigCommon["frame_type"] = lte_frame_type;
+    servingCellConfigCommon["fft_size"] = cfg->fft_size;
+    servingCellConfigCommon["fft_shift"] = cfg->fft_shift;
+    servingCellConfigCommon["nb_prefix_samples0"] = cfg->nb_prefix_samples0;
+    servingCellConfigCommon["nb_prefix_samples"] = cfg->nb_prefix_samples;
+    servingCellConfigCommon["nb_prefix_samples"] = cfg->nb_prefix_samples;
+    servingCellConfigCommon["samples_per_frame"] = (int)cfg->samples_per_frame;
+    servingCellConfigCommon["samples_per_frame_wCP"] = (int)cfg->samples_per_frame_wCP;
+    servingCellConfigCommon["samples_per_slot_wCP"] = (int)cfg->samples_per_slot_wCP;
+    servingCellConfigCommon["samples_per_ofdmsymbolN0"] = (int)cfg->samples_per_ofdmsymbolN0;
+    servingCellConfigCommon["samples_per_ofdmsymbol0"] = (int)cfg->samples_per_ofdmsymbol0;
+    servingCellConfigCommon["samples_per_subframe"] = (int)cfg->samples_per_subframe;
+    servingCellConfigCommon["samples_per_frame"] = (int)cfg->samples_per_frame;
+    servingCellConfigCommon["dl_UL_TransmissionPeriodicity"] = cfg->TDD_UL_DL_configCommon.pattern1.dl_UL_TransmissionPeriodicity;
+    servingCellConfigCommon["nrofDownlinkSlots"] = cfg->TDD_UL_DL_configCommon.pattern1.nrofDownlinkSlots;
+    servingCellConfigCommon["nrofDownlinkSymbols"] = cfg->TDD_UL_DL_configCommon.pattern1.nrofDownlinkSymbols;
+    servingCellConfigCommon["nrofUplinkSlots"] = cfg->TDD_UL_DL_configCommon.pattern1.nrofUplinkSlots;
+    servingCellConfigCommon["nrofUplinkSymbols"] = cfg->TDD_UL_DL_configCommon.pattern1.nrofUplinkSymbols;
+    servingCellConfigCommon["frequency_PointA"] = dl_frequency;
+    servingCellConfigCommon["arfcn_PointA"] = dl_arfcn;
+    servingCellConfigCommon["frequency_range"] = cfg->frequency_range;
+    servingCellConfigCommon["SSB_pattern"] = cfg->SSB_pattern;
+    servingCellConfigCommon["ssb_offset_point_a"] = ssb_offset_point_a;
+    servingCellConfigCommon["ssb_subcarrier_offset"] = ssb_subcarrier_offset;
+    servingCellConfigCommon["Lmax"] = ssb_conf.lmax;
+    for(int i = 0; i<ssb_conf.lmax; ++i)
+    {
+        servingCellConfigCommon["ssb_index_mask"][i] = ssb_mask[i]*5/5;
+        servingCellConfigCommon["ssb_start_symb_mask"][i] = ssb_mask[i]*ssb_conf.ssb_start_ofdm_symb[i];
+
+    }
+    configF.writeFile(output_file);
+    printf("\nYOUR CONFIGURATION IS SAVED IN CONFIG FILE:\n");
+    printf("\n#################################################################################################################");
+    printf("\n#################################################################################################################");
 
 
 

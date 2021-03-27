@@ -76,33 +76,35 @@ include CMakeFiles/NR3GPP.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/NR3GPP.dir/flags.make
 
-CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o: CMakeFiles/NR3GPP.dir/flags.make
-CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o: /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o -c /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp
+CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o: CMakeFiles/NR3GPP.dir/flags.make
+CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o: /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o -c /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp
 
-CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp > CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.i
+CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp > CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.i
 
-CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp -o CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.s
+CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp -o CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.s
 
 # Object files for target NR3GPP
 NR3GPP_OBJECTS = \
-"CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o"
+"CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o"
 
 # External object files for target NR3GPP
 NR3GPP_EXTERNAL_OBJECTS =
 
-NR3GPP: CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o
+NR3GPP: CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o
 NR3GPP: CMakeFiles/NR3GPP.dir/build.make
 NR3GPP: bin/libINIT/liblibINIT.a
 NR3GPP: bin/libORAN/liblibORAN.a
 NR3GPP: bin/libOFDM/liblibOFDM.a
 NR3GPP: bin/libNFAPI/liblibNFAPI.a
 NR3GPP: bin/libTS38/liblibTS38.a
+NR3GPP: /usr/lib/x86_64-linux-gnu/libconfig.so
+NR3GPP: /usr/lib/x86_64-linux-gnu/libconfig++.so
 NR3GPP: /usr/lib/x86_64-linux-gnu/libuhd.so
 NR3GPP: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
 NR3GPP: /usr/lib/x86_64-linux-gnu/libboost_thread.so

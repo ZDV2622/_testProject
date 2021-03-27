@@ -65,13 +65,7 @@ void nr_init_pbch_interleaver(uint8_t* interleaver)
             *(interleaver + i) = *(nr_pbch_payload_interleaving_pattern + j_ssb++);
 }
 
-// final fun: TS_38212  Table 7.1.1-1: Value of PBCH payload interleaver pattern - generates payload and do interleaving
-// input: bchPayload - MIB payload (from L2), where the 24 MSB are used and represent the MIB in [38.331 MIB IE] and represent
-//        Lmax - number of ssb in frame
-//        ssb_index - index of transmitted ssb
-//        n_hf - if hf is used
-//        amp
-//  output: return pbch_a_interleaved - generate payload? interleaved
+
 uint32_t PBCH_payload_generation(uint32_t bchPayload,
                                  uint8_t Lmax,
                                  uint32_t Kssb,
@@ -129,17 +123,12 @@ uint32_t PBCH_payload_generation(uint32_t bchPayload,
 -- c(i) is given by Clause 5.2.1of [4, TS38.211] and initialized with c init = Nid
 
 ********************************************************************************************************************************************/
-// final fun: TS_38212  7.1.2  Scrambling
-// input: bchPayloadInterleaved - a from TS
-//        length - number of input bits
-//        encoded
-//        amp
-//  output: a'
+
+
 uint32_t nr_pbch_scrambling( uint32_t bchPayloadInterleaved, // input
                              uint32_t pci,
                              uint8_t Lmax,
                              uint16_t length,
-                             //uint8_t encoded,
                              int sfn
                            )
 {
@@ -527,18 +516,6 @@ uint64_t crc_calculate(     uint64_t *A, //pointer to array after scrampling  a'
                             uint8_t ones_flag  // appending 24 ones before a0 for DCI as stated in 38.212 7.3.2
                       )
 {
-
-//typedef enum
-//{
-//    POLY24a = 0,
-//    POLY24b,
-//    POLY24c,
-//    POLY16,
-//    POLY12,
-//    POLY8,
-//    POLY6,
-//    POLY11
-//} polyType_t;
 
     uint64_t tcrc = 0;
     uint8_t offset = 0;

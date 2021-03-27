@@ -35,6 +35,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../build/CMakeFiles/3.19.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
+		<Unit filename="../config.conf" />
 		<Unit filename="../libINIT/headers/_init.h" />
 		<Unit filename="../libINIT/headers/_struct_zdv_cfg.h" />
 		<Unit filename="../libINIT/sources/_init.cpp" />
@@ -63,9 +64,8 @@
 		<Unit filename="../libTS38/sources/TS_38212_nr_polar_kronecker_power_matrices.cpp" />
 		<Unit filename="../libTS38/sources/TS_38213_PHY_Layer_Procedure.cpp" />
 		<Unit filename="../libTS38/sources/TS_38331_RL16_RRC.cpp" />
-		<Unit filename="../main.cpp" />
+		<Unit filename="../main_pbch_proc.cpp" />
 		<Unit filename="../main_run_radixN.cpp" />
-		<Unit filename="../main_scheduler.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

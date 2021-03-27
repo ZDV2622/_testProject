@@ -12,13 +12,86 @@ set (PROJECT NR3GPP)
 
 project (${PROJECT})
 
+
+
+
+
+
+FIND_PATH(LIBCONFIG_INCLUDE_DIR libconfig.h
+  /usr/local/include
+  /usr/include
+)
+
+FIND_PATH(LIBCONFIGPP_INCLUDE_DIR libconfig.h++
+  /usr/local/include
+  /usr/include
+)
+
+FIND_LIBRARY(LIBCONFIG_LIBRARY config
+  /usr/local/lib
+  /usr/lib
+)
+
+FIND_LIBRARY(LIBCONFIGPP_LIBRARY config++
+  /usr/local/lib
+  /usr/lib
+)
+
+FIND_LIBRARY(LIBCONFIG_STATIC_LIBRARY "libconfig${CMAKE_STATIC_LIBRARY_SUFFIX}"
+  /usr/local/lib
+  /usr/lib
+)
+
+FIND_LIBRARY(LIBCONFIGPP_STATIC_LIBRARY "libconfig++${CMAKE_STATIC_LIBRARY_SUFFIX}"
+    /usr/local/lib
+    /usr/lib
+)
+
+
+IF(LIBCONFIG_INCLUDE_DIR)
+  IF(LIBCONFIG_LIBRARY)
+    SET(LIBCONFIG_FOUND TRUE)
+    SET(LIBCONFIG_LIBRARIES ${LIBCONFIG_LIBRARY})
+    SET(LIBCONFIG_STATIC_LIBRARY_PATH ${LIBCONFIG_STATIC_LIBRARY})
+  ENDIF(LIBCONFIG_LIBRARY)
+ENDIF(LIBCONFIG_INCLUDE_DIR)
+
+IF(LIBCONFIGPP_INCLUDE_DIR)
+  IF(LIBCONFIGPP_LIBRARY)
+    SET(LIBCONFIGPP_FOUND TRUE)
+    SET(LIBCONFIGPP_LIBRARIES ${LIBCONFIGPP_LIBRARY})
+    SET(LIBCONFIGPP_STATIC_LIBRARY_PATH ${LIBCONFIGPP_STATIC_LIBRARY})
+  ENDIF(LIBCONFIGPP_LIBRARY)
+ENDIF(LIBCONFIGPP_INCLUDE_DIR)
+
+IF (LIBCONFIG_FOUND)
+   IF (NOT LibConfig_FIND_QUIETLY)
+      MESSAGE(STATUS "Found LibConfig++: ${LIBCONFIGPP_LIBRARIES}" )
+      MESSAGE(STATUS "Found LibConfig: ${LIBCONFIG_LIBRARIES}")
+      MESSAGE(STATUS "static LibConfig path: ${LIBCONFIG_STATIC_LIBRARY_PATH}")
+   ENDIF (NOT LibConfig_FIND_QUIETLY)
+ELSE (LIBCONFIG_FOUND)
+   IF (LibConfig_FIND_REQUIRED)
+      MESSAGE(SEND_ERROR "Could NOT find LibConfig")
+   ENDIF (LibConfig_FIND_REQUIRED)
+ENDIF (LIBCONFIG_FOUND)
+
+MARK_AS_ADVANCED(LIBCONFIG_INCLUDE_DIR LIBCONFIG_LIBRARIES)
+
+
+
+
 ### Configure Compiler ########################################################
 set(CMAKE_CXX_STANDARD 11)
+
+
 
 if(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD" AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
     set(CMAKE_EXE_LINKER_FLAGS "-lthr ${CMAKE_EXE_LINKER_FLAGS}")
     set(CMAKE_CXX_FLAGS "-stdlib=libc++ ${CMAKE_CXX_FLAGS}")
 endif()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -lconfig++ -lconfig")
 
 ### Set up build environment ##################################################
 # Choose a static or shared-library build (shared is default, and static will
@@ -28,6 +101,7 @@ option(UHD_USE_STATIC_LIBS OFF)
 
 # To add UHD as a dependency to this project, add a line such as this:
 find_package(UHD 3.15 REQUIRED)
+
 # The version in  ^^^^^  here is a minimum version.
 # To specify an exact version:
 #find_package(UHD 4.0.0 EXACT REQUIRED)
@@ -77,7 +151,7 @@ include_directories (../)
 
 #set(CMAKE_CXX_STANDARD 14)
 
-set (LIBRARIES
+set (LIBRARIES  
 		libINIT
                 libORAN
 		libOFDM
@@ -99,7 +173,7 @@ else ()
 endif ()
 
 set (HEADERS)
-set (SOURCES ../main_scheduler.cpp)
+set (SOURCES ../main_pbch_proc.cpp)
 
 #source_group ("Header Files" FILES ${HEADERS})
 #source_group ("Source Files" FILES ${SOURCES})
@@ -107,7 +181,7 @@ set (SOURCES ../main_scheduler.cpp)
 add_executable (${PROJECT} ${HEADERS} ${SOURCES})
 
 
-target_link_libraries (${PROJECT} ${LIBRARIES})
+target_link_libraries (${PROJECT} ${LIBRARIES} ${LIBCONFIG_LIBRARIES} ${LIBCONFIGPP_LIBRARIES})
 
 # Shared library case: All we need to do is link against the library, and
 # anything else we need (in this case, some Boost libraries):

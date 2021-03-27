@@ -86,3 +86,9 @@ libTS38/headers/TS_38212_RL16_Multiplexing_channelcoding.h
 math.h
 -
 
+/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/libTS38/sources/TS_38213_PHY_Layer_Procedure.cpp
+libTS38/headers/TS_38213_PHY_Layer_Procedure.h
+-
+stdio.h
+-
+

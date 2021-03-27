@@ -2,9 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="../libINIT/headers/_init.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../libINIT/headers/_init.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="832" topLine="0" />
+			<Cursor1 position="832" topLine="8" />
 		</Cursor>
 	</File>
 	<File name="../libTS38/headers/TS_38212_RL16_Multiplexing_channelcoding.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,29 +12,19 @@
 			<Cursor1 position="314" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../libOFDM/headers/ofdm_modulation.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../libTS38/sources/TS_38211_RL16_Phy_channels_modulation.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="643" topLine="0" />
+			<Cursor1 position="21642" topLine="615" />
 		</Cursor>
 	</File>
-	<File name="../libINIT/headers/_struct_zdv_cfg.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../config.conf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1769" topLine="0" />
+			<Cursor1 position="0" topLine="21" />
 		</Cursor>
 	</File>
-	<File name="../main_run_radixN.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../libTS38/headers/TS_38104_BS_Radio_tx_rx_table.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="11053" topLine="246" />
-		</Cursor>
-	</File>
-	<File name="../libNFAPI/headers/FAPI_SCF_222.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="17792" topLine="430" />
-		</Cursor>
-	</File>
-	<File name="../libTS38/sources/TS_38213_PHY_Layer_Procedure.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5484" topLine="143" />
+			<Cursor1 position="3950" topLine="135" />
 		</Cursor>
 	</File>
 	<File name="../libOFDM/sources/ofdm_modulation.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,29 +32,9 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../main_scheduler.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1070" topLine="33" />
-		</Cursor>
-	</File>
-	<File name="../libOFDM/sources/_fft.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="115071" topLine="2802" />
-		</Cursor>
-	</File>
-	<File name="../libTS38/headers/TS_38101_4_UE_tx_rx.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="650" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="../libTS38/headers/TS_38211_RL16_Phy_channels_modulation.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7584" topLine="154" />
-		</Cursor>
-	</File>
-	<File name="../libTS38/sources/TS_38211_RL16_Phy_channels_modulation.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9789" topLine="0" />
+			<Cursor1 position="70" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="../libTS38/headers/TS_38213_PHY_Layer_Procedure.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -72,24 +42,64 @@
 			<Cursor1 position="895" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../libINIT/sources/_init.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../main_scheduler.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="405" topLine="0" />
+			<Cursor1 position="1937" topLine="19" />
 		</Cursor>
 	</File>
-	<File name="../main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../libTS38/sources/TS_38213_PHY_Layer_Procedure.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="70" topLine="0" />
+			<Cursor1 position="5484" topLine="143" />
 		</Cursor>
 	</File>
-	<File name="../libTS38/headers/TS_38104_BS_Radio_tx_rx_table.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../libINIT/headers/_struct_zdv_cfg.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2249" topLine="78" />
+			<Cursor1 position="635" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../libTS38/sources/TS_38212_RL16_Multiplexing_channelcoding.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../libTS38/sources/TS_38212_RL16_Multiplexing_channelcoding.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="51145" topLine="999" />
+			<Cursor1 position="29013" topLine="1226" />
+		</Cursor>
+	</File>
+	<File name="../libINIT/sources/_init.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25581" topLine="682" />
+		</Cursor>
+	</File>
+	<File name="../libOFDM/sources/_fft.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="115071" topLine="2802" />
+		</Cursor>
+	</File>
+	<File name="../libOFDM/headers/ofdm_modulation.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="643" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../libNFAPI/headers/FAPI_SCF_222.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17792" topLine="430" />
+		</Cursor>
+	</File>
+	<File name="../libTS38/headers/TS_38101_4_UE_tx_rx.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="650" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../main_run_radixN.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11053" topLine="246" />
+		</Cursor>
+	</File>
+	<File name="../libTS38/headers/TS_38211_RL16_Phy_channels_modulation.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7584" topLine="154" />
+		</Cursor>
+	</File>
+	<File name="../libORAN/sources/ORAN_BS_SW_WG8.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3691" topLine="54" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

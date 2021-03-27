@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp" "/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_scheduler.cpp.o"
+  "/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp" "/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/build/CMakeFiles/NR3GPP.dir/home/darya/C_projects/NR_5G_3GPP_Prod_cmake/main_pbch_proc.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
